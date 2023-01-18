@@ -16,11 +16,11 @@
       href="node_modules/@appwrite.io/pink-icons/dist/icon.css"
     />
   </head>
-  <body>
+  <body class="theme-dark">
     <script type="module" src="/src/main.ts"></script>
 
     <div class="container">
-      <button class="button is-secondary">Add status</button>
+      <button class="button">Add status</button>
 
       <div class="u-flex u-flex-vertical u-gap-16 u-margin-block-start-32">
         <div class="box u-flex u-gap-16 u-cross-center">
@@ -58,12 +58,23 @@
         display: grid;
         place-items: center;
 
-        background-color: hsl(var(--color-neutral-30));
+        background-color: hsl(var(--color-neutral-300));
         border-radius: var(--border-radius-circular);
+        color: hsl(var(--color-primary-100));
 
         --size: 64px;
         width: var(--size);
         height: var(--size);
+      }
+
+      /* Multiples of 2 */
+      :nth-child(2n) > .icon-wrapper {
+        color: hsl(var(--color-success-100));
+      }
+
+      /* Multiples of 3 */
+      :nth-child(3n) > .icon-wrapper {
+        color: hsl(var(--color-information-100));
       }
     </style>
   </body>
