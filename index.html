@@ -79,7 +79,7 @@
               />
             </li>
             <li class="form-item">
-              <label class="label is-required" for="name">Text</label>
+              <label class="label is-required" for="text">Text</label>
               <input
                 type="text"
                 class="input-text"
@@ -87,6 +87,11 @@
                 placeholder="👋 Good morning!"
                 required
               />
+            </li>
+            <li class="form-item icon-picker">
+              <label class="label is-required" for="icon">Text</label>
+              <input type="hidden" name="icon" required />
+              <ul class="secondary-tabs u-gap-4"></ul>
             </li>
           </ul>
         </div>
@@ -105,6 +110,7 @@
     </dialog>
 
     <script>
+      // Modal
       const button = document.querySelector("button");
       const dialog = document.getElementById("dialog");
 
@@ -117,6 +123,56 @@
       modalClosers.forEach((modalCloser) => {
         modalCloser.addEventListener("click", () => {
           dialog.close();
+        });
+      });
+
+      // Icon Picker
+      const icons = [
+        "chat",
+        "code",
+        "cake",
+        "heart",
+        "home",
+        "info",
+        "mail",
+        "phone",
+        "search",
+        "star",
+        "user",
+        "x",
+      ];
+
+      const iconPicker = {
+        input: () => document.querySelector(".icon-picker input"),
+        list: () => document.querySelector(".icon-picker ul"),
+        buttons: () => document.querySelectorAll(".icon-picker ul button"),
+      };
+
+      iconPicker.input().value = icons[0];
+
+      iconPicker.list().innerHTML = icons
+        .map(
+          (icon, i) => `
+          <li class="secondary-tabs-item">
+            <button
+              class="secondary-tabs-button"
+              type="button"
+              data-icon="${icon}"
+              ${i === 0 ? "disabled" : ""}
+            >
+              <span class="icon-${icon}" />
+            </button>
+          </li>`
+        )
+        .join("");
+
+      iconPicker.buttons().forEach((button) => {
+        button.addEventListener("click", () => {
+          iconPicker.input().value = button.dataset.icon;
+
+          iconPicker.buttons().forEach((button) => {
+            button.disabled = button.dataset.icon === iconPicker.input().value;
+          });
         });
       });
     </script>
