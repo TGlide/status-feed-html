@@ -20,15 +20,51 @@
     <script type="module" src="/src/main.ts"></script>
 
     <div class="container">
-      <button class="">Add status</button>
+      <button class="button is-secondary">Add status</button>
 
-      <div class="">
-        <span class="">
-          <span class="" />
-        </span>
-        <span>Thomas</span>
-        <span>In a meeting</span>
+      <div class="u-flex u-flex-vertical u-gap-16 u-margin-block-start-32">
+        <div class="box u-flex u-gap-16 u-cross-center">
+          <div class="icon-wrapper">
+            <span class="icon-chat" />
+          </div>
+          <div class="u-flex u-flex-vertical u-gap-2">
+            <h6 class="heading-level-6">Thomas</h6>
+            <span>In a meeting</span>
+          </div>
+        </div>
+        <div class="box u-flex u-gap-16 u-cross-center">
+          <div class="icon-wrapper">
+            <span class="icon-cake" />
+          </div>
+          <div class="u-flex u-flex-vertical u-gap-2">
+            <h6 class="heading-level-6">Wess</h6>
+            <span>Feeding</span>
+          </div>
+        </div>
+        <div class="box u-flex u-gap-16 u-cross-center">
+          <div class="icon-wrapper">
+            <span class="icon-chat" />
+          </div>
+          <div class="u-flex u-flex-vertical u-gap-2">
+            <h6 class="heading-level-6">Chen</h6>
+            <span>Presenting Demo</span>
+          </div>
+        </div>
       </div>
     </div>
+
+    <style>
+      .icon-wrapper {
+        display: grid;
+        place-items: center;
+
+        background-color: hsl(var(--color-neutral-30));
+        border-radius: var(--border-radius-circular);
+
+        --size: 64px;
+        width: var(--size);
+        height: var(--size);
+      }
+    </style>
   </body>
 </html>
